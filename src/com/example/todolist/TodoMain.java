@@ -12,7 +12,7 @@ public class TodoMain {
 		TodoList l = new TodoList();
 		boolean isList = false;		//flag var
 		boolean quit = false;		//flag var
-		
+		TodoUtil.loadList(l,  "todolist.txt");
 		Menu.displaymenu();
 		do {
 			Menu.prompt();
@@ -28,7 +28,7 @@ public class TodoMain {
 				TodoUtil.deleteItem(l);
 				break;
 				
-			case "update" :
+			case "edit" :
 				TodoUtil.updateItem(l);
 				break;
 				
@@ -70,5 +70,6 @@ public class TodoMain {
 			
 			if(isList) TodoUtil.listAll(l);
 		} while (!quit);
+		TodoUtil.saveList(l, "todolist.txt");
 	}
 }
