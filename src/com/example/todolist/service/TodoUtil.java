@@ -127,12 +127,11 @@ public class TodoUtil {
 	}
 
 
-	public static void findKeyword(TodoList list) {
+	public static void findKeyword(TodoList list, String keyword) {
 		
 		Scanner s = new Scanner(System.in);
 		
-		System.out.print("[Find Item]\n" + "Enter the keyword to be searched > ");
-		String keyword = s.next().trim();
+		System.out.print("[Find Item]\n");
 		
 		int match_counter=0;
 		int item_counter=0;
@@ -148,18 +147,17 @@ public class TodoUtil {
 	
 
 
-	public static void findKeywordCate(TodoList list) {
+	public static void findKeywordCate(TodoList list, String keyword) {
 
 		Scanner s = new Scanner(System.in);
 		
-		System.out.print("[Find Category]\n" + "Enter the category to be searched > ");
-		String keyword_cate = s.next().trim();
+		System.out.print("[Find Category]\n");
 		
 		int match_counter=0;
 		int item_counter=0;
 		for(TodoItem item : list.getList()) {
 			item_counter++;
-			if(item.getCategory().equals(keyword_cate)) {
+			if(item.getCategory().equals(keyword)) {
 				match_counter++;
 				System.out.println(item_counter + ". " + item.toString());
 			}

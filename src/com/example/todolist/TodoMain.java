@@ -1,6 +1,8 @@
 package com.example.todolist;
 
 import java.util.Scanner;
+import java.util.StringTokenizer;
+
 import com.example.todolist.dao.TodoList;
 import com.example.todolist.menu.Menu;
 import com.example.todolist.service.TodoUtil;
@@ -12,12 +14,15 @@ public class TodoMain {
 		TodoList l = new TodoList();
 		boolean isList = false;		//flag var
 		boolean quit = false;		//flag var
-		TodoUtil.loadList(l,  "todolist.txt");
+		TodoUtil.loadList(l, "todolist.txt");
 		Menu.displaymenu();
 		do {
 			Menu.prompt();
 			isList = false;
-			String choice = s.next();
+			String command = s.nextLine();
+			String choice = command.split(" ")[0];
+			String keyword = command.split(" ")[1];
+			
 			switch (choice) {
 			
 			case "add" :
@@ -67,11 +72,11 @@ public class TodoMain {
 				break;
 				
 			case "find" :
-				TodoUtil.findKeyword(l);
+				TodoUtil.findKeyword(l, keyword);
 				break;
 				
 			case "find_cate" :
-				TodoUtil.findKeywordCate(l);
+				TodoUtil.findKeywordCate(l, keyword);
 				break;
 				
 			case "exit" :
