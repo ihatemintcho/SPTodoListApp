@@ -55,8 +55,23 @@ public class TodoMain {
 				isList = true;
 				break;
 				
+			case "ls_date_desc" :
+				l.sortByDate();
+				l.reverseList();
+				System.out.println("Sorted by date, reversed!");
+				isList = true;
+				break;
+				
 			case "help" :
 				Menu.displaymenu();
+				break;
+				
+			case "find" :
+				TodoUtil.findKeyword(l);
+				break;
+				
+			case "find_cate" :
+				TodoUtil.findKeywordCate(l);
 				break;
 				
 			case "exit" :

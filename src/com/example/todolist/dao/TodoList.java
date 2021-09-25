@@ -34,7 +34,7 @@ public class TodoList {
 	}
 	
 	public void reverseList() {
-		Collections.reverse(list);;
+		Collections.reverse(list);
 	}
 	
 	public void sortByDate() {
